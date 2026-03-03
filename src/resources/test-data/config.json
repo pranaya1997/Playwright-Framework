@@ -1,0 +1,23 @@
+{
+  "baseURL": "https://www.yatra.com/",
+  "urls": {
+    "flight": "/flights",
+    "hotels": "/hotels",
+    "holidays": "/holidays",
+    "bus": "/bus-booking",
+    "trains": "/trains",
+    "cabs": "/yatraMice/index.html"
+  },
+  "testData": {
+    "flightSearch": {
+      "departureCity": "Bangalore",
+      "departureCityCode": "BLR",
+      "goingCity": "Bhubaneswar",
+      "goingCityCode": "BBI"
+    },
+    "holidaySearch": {
+      "departureCity": "Bengaluru",
+      "goingCity": "Bhubaneswar"
+    }
+  }
+}

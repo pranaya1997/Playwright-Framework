@@ -1,0 +1,32 @@
+{
+  "validUser": {
+    "username": "pranayamishra510@gmail.com",
+    "password": "Pkm@482385"
+  },
+  "invalidUser": {
+    "username": "invaliduser",
+    "password": "wrongpassword"
+  },
+  "newUser": {
+    "username": "newuser456",
+    "password": "newpass123"
+  },
+  "testUsers": [
+    {
+      "username": "demouser1",
+      "password": "demo123"
+    },
+    {
+      "username": "demouser2",
+      "password": "demo456"
+    }
+  ],
+  "orderData": {
+    "name": "John Doe",
+    "country": "United States",
+    "city": "New York",
+    "card": "1234567890123456",
+    "month": "12",
+    "year": "2025"
+  }
+}
