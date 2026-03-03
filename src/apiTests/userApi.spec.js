@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('Create user API', async ({ request }) => {
+test.only('Create user API', async ({ request }) => {
 
   const response = await request.post(
     'posts',
@@ -19,7 +19,7 @@ test('Create user API', async ({ request }) => {
   expect(body.title).toBe("Pranaya - Test User");
 });
 
-test('Get user by id', async ({ request }) => {
+test.only('Get user by id', async ({ request }) => {
 
   const response = await request.get(
     'posts/1'
@@ -28,7 +28,7 @@ test('Get user by id', async ({ request }) => {
   expect(response.status()).toBe(200);
 });
 
-test('Get all users', async ({ request }) => {
+test.only('Get all users', async ({ request }) => {
 
   const response = await request.get(
     'posts'
@@ -37,7 +37,7 @@ test('Get all users', async ({ request }) => {
   expect(response.status()).toBe(200);
 });
 
-test('Update User', async ({ request }) => {
+test.only('Update User', async ({ request }) => {
   const response = await request.put(
     'posts/1',
     {
@@ -49,7 +49,7 @@ test('Update User', async ({ request }) => {
   expect(response.status()).toBe(200);
 });
 
-test('Delete User', async ({ request }) => {
+test.only('Delete User', async ({ request }) => {
   const response = await request.delete(
     'posts/1'
   );
