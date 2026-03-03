@@ -1,6 +1,5 @@
 const { expect } = require('@playwright/test');
 const { baseTest } = require('../fixtures/baseTest');
-const ai = require('../../ai/aiAgent');
 
 const test = baseTest;
 
@@ -32,31 +31,5 @@ test.describe('Flight book in Yatra', () => {
     // click the first visible one
     await flightPage.bookFirstFlight();
   });
-
-  // ========================================================
-
-  test.only('AI Flight Search', async ({ page }) => {
-
-  await page.goto('https://www.yatra.com');
-
-  const steps = JSON.parse(
-    await ai.run("Search flight from Bangalore to Mumbai")
-  );
-
-  for (const step of steps) {
-
-    if (step.action === "goto")
-      await page.goto(step.value);
-
-    if (step.action === "fill")
-      await page.fill(step.selector, step.value);
-
-    if (step.action === "click")
-      await page.click(step.selector);
-
-    if (step.action === "wait")
-      await page.waitForTimeout(2000);
-  }
-});
 
 });
