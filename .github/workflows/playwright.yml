@@ -1,29 +1,47 @@
 name: Playwright Tests
+
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
   schedule:
     - cron: '30 0 * * *'
+  workflow_dispatch:
+
 jobs:
   test:
-    timeout-minutes: 60
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v4
+
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
+
     - name: Install dependencies
       run: npm ci
+
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+
     - name: Run Playwright tests
       run: npx playwright test
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
+
+    - name: Zip report
+      run: zip -r playwright-report.zip playwright-report
+
+    - name: Send Playwright Report Email
+      uses: dawidd6/action-send-mail@v3
       with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: Playwright Test Report
+        to: pranayamishra1997@gmail.com
+        from: GitHub CI
+        body: |
+          Hello,
+          Playwright tests have completed.
+          Please find the report attached.
+        attachments: playwright-report.zip
