@@ -1,0 +1,6 @@
+{
+  userId: 482,
+  id: 101,
+  title: 'Pranaya - Test User',
+  body: 'This is a test user created using Playwright API testing.'
+}
