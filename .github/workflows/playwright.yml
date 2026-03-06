@@ -74,7 +74,8 @@ jobs:
         rm -rf public
         mkdir -p public
         cp -r reports/playwright-report public/playwright
-        cp -r allure-report public/allure
+        mkdir -p public/allure
+        cp -r allure-report/* public/allure
 
     # Deploy reports
     - name: Deploy Reports to GitHub Pages
