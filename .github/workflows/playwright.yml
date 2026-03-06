@@ -27,12 +27,28 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test
 
+    - name: Deploy Playwright Report to GitHub Pages
+      if: ${{ always() }}
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./reports/playwright-report
+
     - name: Zip Playwright report
       if: ${{ always() }}
       run: |
         if [ -d "reports/playwright-report" ]; then
           zip -r playwright-report.zip reports/playwright-report
         fi
+
+    # ✅ Upload report to GitHub Actions
+    - name: Upload Playwright Report Artifact
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-report
+        path: playwright-report.zip
+        retention-days: 7
 
     - name: Send Playwright Report Email
       if: ${{ always() }}
