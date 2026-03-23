@@ -6,10 +6,8 @@ class FlightPage {
     this.page = page;
     
     this.flightCards = page.locator('[class*="flight"]');
-    // Book buttons
-    this.bookNowButtons = page.getByRole('button', { name: /Book/i });
-    // Loader
-    this.loader = page.locator('[class*="loader"]');
+    this.viewFairs = page.locator("//button[normalize-space()= 'View Fares']");
+    this.bookNowButtons = page.getByRole("button", { name: "Book Now" });
   }
   
   async waitForResults() {
@@ -20,7 +18,8 @@ class FlightPage {
   async bookFirstFlight() {
     await this.waitForResults();
     await this.page.mouse.wheel(0, 4000);
-    await this.bookNowButtons.first().click();
+    await this.viewFairs.first().click();
+    await this.bookNowButtons.click();
   }
 
 }

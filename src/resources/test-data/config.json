@@ -1,5 +1,5 @@
 {
-  "baseURL": "https://www.yatra.com/",
+  "baseURL": "https://www.yatra.com",
   "urls": {
     "flight": "/flights",
     "hotels": "/hotels",

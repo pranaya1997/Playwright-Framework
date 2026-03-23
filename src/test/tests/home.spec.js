@@ -31,11 +31,9 @@ test.describe('Yatra Home Page Functionality', () => {
   test('Search a Flight without selecting departure date', async ({ homePage }) => {
     await homePage.selectTripType('One Way');
     await expect(homePage.oneWay).toBeChecked();
-
     await homePage.selectDepartureCity();
     await homePage.selectGoingCity();
     await homePage.searchButton.click();
-
   });
 
   test('Search a Flight with selecting deaprture date', async ({ homePage }) => {

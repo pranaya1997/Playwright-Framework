@@ -40,7 +40,9 @@ class HomePage {
   }
 
   async navigate() {
-    await this.page.goto(config.baseURL + config.urls.flight);
+    await this.page.goto(config.baseURL + config.urls.flight, {
+      waitUntil: "domcontentloaded"
+    });
     await this.waitForPageLoad();
   }
 

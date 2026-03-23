@@ -20,7 +20,6 @@ module.exports = defineConfig({
     }
   },
   projects: [
-
     // ✅ UI - Chromium
     {
       name: 'chromium',
