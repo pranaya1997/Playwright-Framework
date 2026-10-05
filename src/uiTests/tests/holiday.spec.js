@@ -1,6 +1,5 @@
-﻿const { expect } = require('@playwright/test');
-const { baseTest } = require('../fixtures/baseTest');
-const config = require('../resources/test-data/config.json');
+﻿const { baseTest } = require('../fixtures/baseTest');
+const config = require('../test-data/config.json');
 
 const test = baseTest;
 

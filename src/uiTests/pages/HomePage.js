@@ -1,11 +1,10 @@
 ﻿const config = require('../test-data/config.json');
 
-const { CalendarUtil } = require('../utils/CalendarUtil');
 class HomePage {
 
   constructor(page) {
     this.page = page;
-    this.calendar = new CalendarUtil(page);
+    
     this.loginWindow = page.locator('//img[@alt="cross"]');
 
     this.logo = page.getByAltText('yatraLogo');
