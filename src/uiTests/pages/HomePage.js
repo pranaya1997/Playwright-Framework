@@ -1,4 +1,4 @@
-﻿const config = require('../resources/test-data/config.json');
+﻿const config = require('../test-data/config.json');
 
 const { CalendarUtil } = require('../utils/CalendarUtil');
 class HomePage {
@@ -47,13 +47,13 @@ class HomePage {
   async selectTripType(tripType) {
     switch (tripType.toLowerCase()) {
       case 'one way':
-            await this.oneWay.check();
+        await this.oneWay.check();
         break;
       case 'round trip':
-            await this.roundTrip.check();
+        await this.roundTrip.check();
         break;
       case 'multi city':
-            await this.multiCity.check();
+        await this.multiCity.check();
         break;
       default:
         throw new Error(`Invalid trip type: ${tripType}`);
@@ -61,8 +61,8 @@ class HomePage {
   }
 
   async selectDepartureCity() {
-      await this.departureFrom.click();
-      await this.departureFromInputText.fill(config.testData.flightSearch.departureCity);
+    await this.departureFrom.click();
+    await this.departureFromInputText.fill(config.testData.flightSearch.departureCity);
 
     const cityOption = this.page
       .locator(`//span[normalize-space()='${config.testData.flightSearch.departureCityCode}']`)

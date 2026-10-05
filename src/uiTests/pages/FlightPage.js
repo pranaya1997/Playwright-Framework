@@ -1,4 +1,5 @@
 ﻿class FlightPage {
+
   constructor(page) {
     this.page = page;
 
@@ -8,17 +9,16 @@
   }
 
   async waitForResults() {
-     this.page.waitForLoadState('networkidle');
-     this.flightCards.first().waitFor({ state: 'visible' });
+    this.page.waitForLoadState('networkidle');
+    this.flightCards.first().waitFor({ state: 'visible' });
   }
 
   async bookFirstFlight() {
-     this.waitForResults();
-     this.page.mouse.wheel(0, 4000);
-     this.viewFairs.first().click();
-     this.bookNowButtons.click();
+    this.waitForResults();
+    this.page.mouse.wheel(0, 4000);
+    this.viewFairs.first().click();
+    this.bookNowButtons.click();
   }
 }
 
 module.exports = { FlightPage };
-
