@@ -1,57 +1,45 @@
-const { test, expect } = require('@playwright/test');
+﻿const { test, expect } = require('@playwright/test');
 
-test.only('Create user API', async ({ request }) => {
-
-  const response = await request.post(
-    'posts',
-    {
+test.describe('User API', () => {
+  test('Create user API', async ({ request }) => {
+    const response = await request.post('posts', {
       data: {
-        "userId": 482,
-        "id": 385,
-        "title": "Pranaya - Test User",
-        "body": "This is a test user created using Playwright API testing."
+        userId: 482,
+        id: 385,
+        title: 'Pranaya - Test User',
+        body: 'This is a test user created using Playwright API testing.'
       }
-    }
-  );
-  const body = await response.json();
-  console.log(body);
-  expect(response.status()).toBe(201);
-  expect(body.title).toBe("Pranaya - Test User");
-});
+    });
 
-test.only('Get user by id', async ({ request }) => {
+    const body = await response.json();
+    console.log(body);
+    expect(response.status()).toBe(201);
+    expect(body.title).toBe('Pranaya - Test User');
+  });
 
-  const response = await request.get(
-    'posts/1'
-  );
-  console.log(await response.json());
-  expect(response.status()).toBe(200);
-});
+  test('Get user by id', async ({ request }) => {
+    const response = await request.get('posts/1');
+    console.log(await response.json());
+    expect(response.status()).toBe(200);
+  });
 
-test.only('Get all users', async ({ request }) => {
+  test('Get all users', async ({ request }) => {
+    const response = await request.get('posts');
+    console.log(await response.json());
+    expect(response.status()).toBe(200);
+  });
 
-  const response = await request.get(
-    'posts'
-  );
-  console.log(await response.json());
-  expect(response.status()).toBe(200);
-});
-
-test.only('Update User', async ({ request }) => {
-  const response = await request.put(
-    'posts/1',
-    {
+  test('Update User', async ({ request }) => {
+    const response = await request.put('posts/1', {
       data: {
-        title: "Updated Title"
+        title: 'Updated Title'
       }
-    }
-  );
-  expect(response.status()).toBe(200);
-});
+    });
+    expect(response.status()).toBe(200);
+  });
 
-test.only('Delete User', async ({ request }) => {
-  const response = await request.delete(
-    'posts/1'
-  );
-  expect(response.status()).toBe(200);
+  test('Delete User', async ({ request }) => {
+    const response = await request.delete('posts/1');
+    expect(response.status()).toBe(200);
+  });
 });

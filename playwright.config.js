@@ -1,10 +1,10 @@
-const { defineConfig, devices } = require('@playwright/test');
+﻿const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
   timeout: 30000,
   workers: 1,
   reporter: [
-    ['line'], // For Console Formating
+    ['line'],
     ['html', { outputFolder: 'reports/playwright-report' }],
     ['json', { outputFile: 'reports/test-results.json' }],
     ['allure-playwright']
@@ -20,35 +20,18 @@ module.exports = defineConfig({
     }
   },
   projects: [
-    // ✅ UI - Chromium
     {
       name: 'chromium',
-      testDir: './src/test/tests',
-      use: { ...devices['Desktop Chrome'] },
+      testDir: './src/uiTests/tests',
+      use: { ...devices['Desktop Chrome'] }
     },
-
-    // ✅ UI - Firefox
-    {
-      name: 'firefox',
-      testDir: './src/test/tests',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    // ✅ UI - WebKit
-    {
-      name: 'webkit',
-      testDir: './src/test/tests',
-      use: { ...devices['Desktop Safari'] },
-    },
-
-    // ✅ API Tests
     {
       name: 'api',
       testDir: './src/apiTests',
       testMatch: '**/*.spec.js',
       use: {
-        baseURL: 'https://jsonplaceholder.typicode.com',
-      },
-    },
-  ],
+        baseURL: 'https://jsonplaceholder.typicode.com'
+      }
+    }
+  ]
 });

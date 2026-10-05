@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Playwright automation framework with Page Object Model",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "test": "npx playwright test",
     "test:headed": "npx playwright test --headed",
@@ -20,7 +21,8 @@
   "devDependencies": {
     "@playwright/test": "^1.58.0",
     "@types/node": "^25.1.0",
-    "allure-playwright": "^3.6.0"
+    "allure-playwright": "^3.6.0",
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "@applitools/eyes-playwright": "^1.45.2",

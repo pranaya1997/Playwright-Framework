@@ -1,4 +1,4 @@
-const { test: base } = require('@playwright/test');
+﻿const { test: base } = require('@playwright/test');
 const { HomePage } = require('../pages/HomePage');
 const { FlightPage } = require('../pages/FlightPage');
 const { HolidaysPage } = require('../pages/HolidaysPage');
@@ -6,19 +6,19 @@ const { HolidaysPage } = require('../pages/HolidaysPage');
 const baseTest = base.extend({
   homePage: async ({ page }, use) => {
     const homePage = new HomePage(page);
-    await use(homePage);
+     use(homePage);
   },
 
   flightPage: async ({ page }, use) => {
     const flightPage = new FlightPage(page);
-    await use(flightPage);
+     use(flightPage);
   },
 
   holidaysPage: async ({ page }, use) => {
     const holidaysPage = new HolidaysPage(page);
-    await use(holidaysPage);
+     use(holidaysPage);
   }
-
 });
 
 module.exports = { baseTest };
+
