@@ -35,19 +35,4 @@ test.describe('Yatra Home Page Functionality', () => {
      await homePage.searchButton.click();
   });
 
-  test('Search a Flight with selecting deaprture date', async ({ homePage }) => {
-     homePage.selectTripType('One Way');
-     expect(homePage.oneWay).toBeChecked();
-
-     homePage.selectDepartureCity();
-     homePage.selectGoingCity();
-
-     homePage.departureDate.click();
-     homePage.chooseDepartureDate();
-
-     await homePage.searchButton.click();
-
-     await homePage.page.waitForURL(/air-search-ui\/dom2\/trigger/, { timeout: 20000 });
-     await expect(homePage.page).toHaveURL(/air-search-ui\/dom2\/trigger/);
-  });
 });

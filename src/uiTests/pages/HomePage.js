@@ -81,10 +81,6 @@ class HomePage {
     await cityOption.click();
   }
 
-  async chooseDepartureDate() {
-    await this.calendar.selectNext10DaysRandom();
-  }
-
   async clickSearch() {
     await this.searchButton.click();
   }
